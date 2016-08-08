@@ -5,12 +5,15 @@ Easily install kcptun
 
 ### Linux
 ```shell
-bash kcptun_install.sh
+# server
+bash install.sh server
+# client
+bash install.sh client
 ```
 
 ### Windows
 ```bat
-kcptun_install.bat
+install.bat
 ```
 
 ## TODOs
