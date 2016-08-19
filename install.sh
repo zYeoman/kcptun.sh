@@ -13,9 +13,9 @@ if [ "$1" = "server" ]; then
     # Goto kcpath
     cd "$kcpath"
     # make link
-    echo sudo ln kcptun.sh /usr/bin/kcptun
+    echo sudo ln kcptun.sh /usr/local/bin/kcptun
     echo sudo chmod +x kcptun.sh
-    sudo ln -s kcptun.sh /usr/bin/kcptun && chmod +x kcptun.sh
+    sudo ln -s kcptun.sh /usr/local/bin/kcptun && chmod +x kcptun.sh
     # Download kcptun
     # TODO: Auto detect latest release
     # reference URL: http://stackoverflow.com/questions/24987542/is-there-a-link-to-github-for-downloading-a-file-in-the-latest-release-of-a-repo
