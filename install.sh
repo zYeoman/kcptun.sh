@@ -1,4 +1,4 @@
-if [ "$1" = "server" ]; then
+if [ "$1" = "server" ] || [ "$1" = "client" ]; then
     read -p "Enter install directory [default:$HOME/.kcptun]: " -e kcpath
     # Check whether use default path
     if [ "$kcpath" = "" ]; then
@@ -13,9 +13,10 @@ if [ "$1" = "server" ]; then
     # Goto kcpath
     cd "$kcpath"
     # make link
+    kcpname=kcp$1
     echo sudo ln kcptun.sh /usr/local/bin/kcptun
     echo sudo chmod +x kcptun.sh
-    sudo ln -s kcptun.sh /usr/local/bin/kcptun && chmod +x kcptun.sh
+    sudo ln -s $kcpname.sh /usr/local/bin/$kcpname && chmod +x $kcpname.sh
     # Download kcptun
     # TODO: Auto detect latest release
     # reference URL: http://stackoverflow.com/questions/24987542/is-there-a-link-to-github-for-downloading-a-file-in-the-latest-release-of-a-repo
@@ -23,14 +24,13 @@ if [ "$1" = "server" ]; then
     tar -zxf kcptun-linux-amd64-*.tar.gz
     rm kcptun-linux-amd64-*.tar.gz
     # Auto start
-    read -p "Would like to start kcptun when system start?[N/y]: " yn
+    read -p "Would like to start $kcpname when system start?[N/y]: " yn
     case $yn in
-        [Yy]* ) sudo chmod +x /etc/rc.local; sudo echo "bash /usr/bin/kcptun start" >> /etc/rc.local;break;;
-        * ) echo "Don't start kcptun when system start";;
+        [Yy]* ) sudo chmod +x /etc/rc.local; sudo echo "bash /usr/bin/$kcpname start" >> /etc/rc.local;break;;
+        * ) echo "Don't start $kcpname when system start";;
     esac
-elif [ "$1" = "client" ]; then
-    # TODO: 
-    echo "coming soon"
+    echo "$kcpname installed!"
+    echo "Use $kcpname start/stop/restart to control kcptun"
 else
     echo "ERROR: Wrong options"
     echo "Usage:"
