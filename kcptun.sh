@@ -20,4 +20,9 @@ elif [ "$1" = "stop" ]; then
 elif [ "$1" = "restart" ]; then
     start
     stop
+else
+    echo "kcptun: "
+    echo "    start     start kcptun server"
+    echo "    stop      stop kcptun server"
+    echo "    restart   restart kcptun server"
 fi
