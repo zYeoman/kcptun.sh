@@ -18,7 +18,7 @@ if [ "$1" = "server" ] || [ "$1" = "client" ]; then
     # Download kcptun
     # TODO: Auto detect latest release
     # reference URL: http://stackoverflow.com/questions/24987542/is-there-a-link-to-github-for-downloading-a-file-in-the-latest-release-of-a-repo
-    wget https://github.com/xtaci/kcptun/releases/download/v20160725/kcptun-linux-amd64-20160725.tar.gz
+    wget https://github.com/xtaci/kcptun/releases/download/v20160830/kcptun-linux-amd64-20160830.tar.gz
     tar -zxf kcptun-linux-amd64-*.tar.gz
     rm kcptun-linux-amd64-*.tar.gz
     # Auto start
