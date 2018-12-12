@@ -25,7 +25,7 @@ _update_kcp() {
   wget -q "https://github.com/xtaci/kcptun/releases/download/$latest/kcptun-linux-amd64-${latest#*v}.tar.gz"
   tar -zxf kcptun-linux-amd64-*.tar.gz
   rm kcptun-linux-amd64-*.tar.gz
-
+  cd - || exit
 }
 if [ -f config.conf ]; then
   source config.conf
