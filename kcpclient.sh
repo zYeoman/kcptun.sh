@@ -22,8 +22,8 @@ if [ "$1" = "start" ]; then
 elif [ "$1" = "stop" ]; then
     stop
 elif [ "$1" = "restart" ]; then
-    start
     stop
+    start
 else
     echo "kcptun: "
     echo "    start     start kcptun client"
