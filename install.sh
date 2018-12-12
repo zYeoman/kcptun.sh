@@ -21,12 +21,18 @@ _update_kcp() {
   cd "$kcpath" || exit
   touch config.conf
   # Download kcptun
-  latest=$(_get_latest_release "xtaci/kcptun")
+  read -rp "kcptun version(e.g. v20181101) [Default:latest]:" -e latest
+  if [ "" = "$latest" ]; then
+    latest=$(_get_latest_release "xtaci/kcptun")
+  fi
+  echo "Download $latest"
   wget -q "https://github.com/xtaci/kcptun/releases/download/$latest/kcptun-linux-amd64-${latest#*v}.tar.gz"
-  tar -zxf kcptun-linux-amd64-*.tar.gz
+  echo "Extract $latest"
+  tar -zxvf kcptun-linux-amd64-*.tar.gz
   rm kcptun-linux-amd64-*.tar.gz
   cd - || exit
 }
+
 if [ -f config.conf ]; then
   source config.conf
 else
